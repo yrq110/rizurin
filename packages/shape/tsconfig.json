@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [
+      "@webgpu/types"
+    ]
+  },
+  "references": [
+    { "path": "../core" },
+    { "path": "../util" }
+  ]
+}

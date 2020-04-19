@@ -1,0 +1,38 @@
+{
+  "name": "@rizurin/renderer",
+  "version": "0.0.1",
+  "description": "Renderers to handle rendering context",
+  "author": "yrq110",
+  "contributors": [
+    "yrq110 <yrq1025@gmail.com>"
+  ],
+  "homepage": "https://github.com/yrq110/rizurin",
+  "license": "ISC",
+  "main": "src/index.ts",
+  
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.taobao.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yrq110/rizurin.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "compile": "tsc --outDir ./dist",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json"
+  },
+  "dependencies": {
+    "@rizurin/core": "^0.0.1",
+    "@webgpu/glslang": "^0.0.15"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.0.23",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  }
+}

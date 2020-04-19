@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>rizurin-playgroud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </head>
+  <body>
+    <div class="demo">
+      <div class="section canvas">
+        <h3 class="title">CanvasRenderer</h3>
+      </div>
+      <div class="section webgl">
+        <h3 class="title">WebGLRenderer</h3>
+      </div>
+      <div class="section webgpu">
+        <h3 class="title">WebGPURenderer</h3>
+      </div>
+      <div class="section svg">
+        <h3 class="title">SVGRenderer</h3>
+      </div>
+    </div>
+  </body>
+  <style>
+    .demo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      height: 500px;
+    }
+    .demo .section {
+      box-sizing: content-box;
+      position: relative;
+      width: 500px;
+      height: 400px;
+      margin: 10px;
+      padding: 0;
+      border: 1px solid #222;
+    }
+
+    .title {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      padding: 0 30px;
+      user-select: none;
+      z-index: 99;
+    }
+  </style>
+  <script src="dist/bundle.js"></script>
+</html>

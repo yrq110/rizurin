@@ -1,0 +1,13 @@
+.tsbuildinfo
+node_modules
+lerna-debug.log
+npm-debug.log
+yarn-error.log
+packages/*/dist
+dist
+lib
+.idea
+.vscode
+.DS_Store
+public
+build

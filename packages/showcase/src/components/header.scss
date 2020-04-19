@@ -1,0 +1,22 @@
+.header {
+  padding: 10px 30px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px black solid;
+  .title {
+    .name {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+  
+  .icon-link {
+    // color: white;
+  }
+}

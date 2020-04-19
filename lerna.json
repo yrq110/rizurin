@@ -1,0 +1,11 @@
+{
+  "packages": [
+    "packages/core",
+    "packages/renderer",
+    "packages/shape",
+    "packages/util"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}

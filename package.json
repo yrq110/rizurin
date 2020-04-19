@@ -1,0 +1,30 @@
+{
+  "name": "rizurin",
+  "description": "A web 2D graphics library",
+  "private": true,
+  "workspaces": [
+    "packages/core",
+    "packages/renderer",
+    "packages/shape",
+    "packages/util"
+  ],
+  "scripts": {
+    "clean": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo",
+    "build": "lerna run build",
+    "compile": "yarn clean && lerna run compile",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
+    "bootstrap": "lerna bootstrap",
+    "b": "tsc -b packages/util packages/core packages/renderer packages/shape",
+    "play": "lerna exec --scope @rizurin/playground yarn dev",
+    "case": "lerna exec --scope @rizurin/showcase yarn dev"
+  },
+  "author": "yrq110 <yrq1025@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.8.3"
+  }
+}

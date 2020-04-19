@@ -1,0 +1,35 @@
+{
+  "name": "@rizurin/core",
+  "version": "0.0.1",
+  "description": "Core components in RizurinJS",
+  "author": "yrq110",
+  "contributors": [
+    "yrq110 <yrq1025@gmail.com>"
+  ],
+  "homepage": "https://github.com/yrq110/rizurin",
+  "scripts": {
+    "build": "tsc -b",
+    "compile": "tsc --outDir ./dist",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json"
+  },
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yrq110/rizurin.git"
+  },
+  "dependencies": {
+    "@rizurin/util": "^0.0.1"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  }
+}
