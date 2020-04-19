@@ -28,6 +28,10 @@
 * 更多图元类型及样式设置
 * 提供纹理/精灵对象
 
+## Thanks
+
+编写过程中学习并借鉴了[Fabric](https://github.com/fabricjs/fabric.js), [Konva](https://github.com/konvajs/konva), [Pixi](https://github.com/pixijs/pixi.js)等web图形库中的一些优秀设计。部分总结文章见[博客](https://yrq110.me/post/front-end/dive-into-2d-canvas-framework-i-fabric/)
+
 ## WebGPU demos
 
 * [webgpu-samples](https://github.com/austinEng/webgpu-samples)

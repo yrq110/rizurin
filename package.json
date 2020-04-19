@@ -19,11 +19,14 @@
     "bootstrap": "lerna bootstrap",
     "b": "tsc -b packages/util packages/core packages/renderer packages/shape",
     "play": "lerna exec --scope @rizurin/playground yarn dev",
-    "case": "lerna exec --scope @rizurin/showcase yarn dev"
+    "case": "lerna exec --scope @rizurin/showcase yarn dev",
+    "pub:lib": "lerna publish",
+    "pub:doc": "yarn workspace @rizurin/showcase build && gh-pages -d packages/showcase/public",
   },
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "lerna": "^3.20.2",
     "rimraf": "^3.0.0",
     "tslint-config-airbnb": "^5.11.2",
