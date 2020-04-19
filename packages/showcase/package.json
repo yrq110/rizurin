@@ -37,5 +37,6 @@
     "dev": "run-p start:dev autobuild",
     "start": "sirv public",
     "start:dev": "sirv public --dev"
-  }
+  },
+  "gitHead": "0938c4b0731dd13390ae606a9827d917f5bf3f46"
 }
