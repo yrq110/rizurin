@@ -1,6 +1,6 @@
 {
   "name": "@rizurin/playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just a playground",
   "author": "yrq110 <yrq1025@gmail.com>",
   "homepage": "https://github.com/yrq110/rizurin",
@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@open-wc/webpack-import-meta-loader": "^0.4.1",
-    "@rizurin/core": "^0.0.1",
-    "@rizurin/renderer": "^0.0.1",
-    "@rizurin/shape": "^0.0.1",
+    "@rizurin/core": "^0.0.2",
+    "@rizurin/renderer": "^0.0.2",
+    "@rizurin/shape": "^0.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4",

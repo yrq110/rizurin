@@ -1,6 +1,6 @@
 {
   "name": "@rizurin/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core components in RizurinJS",
   "author": "yrq110",
   "contributors": [
@@ -26,7 +26,7 @@
     "url": "https://github.com/yrq110/rizurin.git"
   },
   "dependencies": {
-    "@rizurin/util": "^0.0.1"
+    "@rizurin/util": "^0.0.2"
   },
   "devDependencies": {
     "tslint": "^6.1.1",

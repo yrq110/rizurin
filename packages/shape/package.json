@@ -1,6 +1,6 @@
 {
   "name": "@rizurin/shape",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Primitives for different rendering methods",
   "author": "yrq110",
   "contributors": [
@@ -9,7 +9,6 @@
   "homepage": "https://github.com/yrq110/rizurin",
   "license": "MIT",
   "main": "src/index.ts",
-  
   "files": [
     "src"
   ],
@@ -27,8 +26,8 @@
     "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json"
   },
   "dependencies": {
-    "@rizurin/core": "^0.0.1",
-    "@rizurin/util": "^0.0.1",
+    "@rizurin/core": "^0.0.2",
+    "@rizurin/util": "^0.0.2",
     "twgl.js": "^4.14.1"
   },
   "devDependencies": {

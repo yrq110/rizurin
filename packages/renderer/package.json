@@ -1,6 +1,6 @@
 {
   "name": "@rizurin/renderer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Renderers to handle rendering context",
   "author": "yrq110",
   "contributors": [
@@ -9,7 +9,6 @@
   "homepage": "https://github.com/yrq110/rizurin",
   "license": "ISC",
   "main": "src/index.ts",
-  
   "files": [
     "src"
   ],
@@ -27,7 +26,7 @@
     "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json"
   },
   "dependencies": {
-    "@rizurin/core": "^0.0.1",
+    "@rizurin/core": "^0.0.2",
     "@webgpu/glslang": "^0.0.15"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@rizurin/showcase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Showcase for rizurin",
   "author": "yrq110",
   "contributors": [
@@ -23,9 +23,9 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@rizurin/core": "^0.0.1",
-    "@rizurin/renderer": "^0.0.1",
-    "@rizurin/shape": "^0.0.1",
+    "@rizurin/core": "^0.0.2",
+    "@rizurin/renderer": "^0.0.2",
+    "@rizurin/shape": "^0.0.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "^2.8.1",
     "sirv-cli": "^0.4.4",
