@@ -67,7 +67,7 @@ const InteractionSnippet = () => `
 
 const AnimationCode = () => `
   let step = 3
-  let ratio, dir
+  let ratio = 1.01, dir = 1
   const animate = () => {
     if(circle.scaleX > 1.5)  ratio = 0.99
     if(circle.scaleX < 0.5)  ratio = 1.01
@@ -117,4 +117,43 @@ const GameOfLifeCode = (shape = 'CANVAS_SHAPE', renderer = 'Canvas') => `
   }, 500)
 `
 
-export default [BasicDrawingSnippet, InteractionSnippet, AnimationCode, GameOfLifeCode];
+const CustomShapeSnippet = () => `
+  import { Scene, StaticLayer } from '@rizurin/core'
+  import { CanvasRenderer } from '@rizurin/renderer'
+  class RainbowText extends Shape {
+    public text = ''
+    public fontSize = 25
+    public colors = ["rgb(255,0,0)", 'rgb(217,31,38)', 'rgb(226,91,14)', 'rgb(245,221,8)', 'rgb(5,148,68)', 'rgb(2,135,206)', 'rgb(4,77,145)', 'rgb(42,21,113)']
+    constructor(config) {
+      super(config);
+      this.text = config.text || 'Hello world';
+    }
+    $drawMain(ctx: CanvasRenderingContext2D) {
+      ctx.save()
+      ctx.font = this.fontSize + 'px Sans';
+      ctx.textAlign = "center";
+      ctx.transform(...this.transform.matrix());
+      for(let i=this.colors.length; i>0; i--) {
+        ctx.fillStyle = this.colors[i];
+        ctx.fillText(this.text, (i + 1) * 3, (i + 1) * 3);
+      }
+      ctx.restore()
+    }
+    $drawHit(ctx: CanvasRenderingContext2D) {}
+  }
+
+  const scene = new Scene({ container,
+    width: containerWidth,
+    height: containerHeight,
+  })
+  let layer = new StaticLayer()
+  layer.bind(await new CanvasRenderer({canvas: layer.canvas}))
+  const rainbow = new RainbowText({text:"RainbowShape", x: 100, y: 100})
+  layer.add(rainbow)
+  const dizzy = new RainbowText({text:"Wow! I feel dizzy!", x: 300, y:200})
+  dizzy.rotate(30*Math.PI / 180)
+  layer.add(dizzy)
+  scene.add(layer)
+`
+
+export default [BasicDrawingSnippet, CustomShapeSnippet, InteractionSnippet, AnimationCode, GameOfLifeCode];

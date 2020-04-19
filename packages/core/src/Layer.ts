@@ -7,7 +7,7 @@ import { Renderer } from './Renderer';
 export type LayerConfigType = {
   canvas?: HTMLCanvasElement,
 };
-export type LayerChildType = Group | Shape;
+export type LayerChildType = Group | Shape | any;
 export class StaticLayer<Config extends LayerConfigType = LayerConfigType>
   extends Container<LayerChildType>{
   readonly type: string = 'Layer';

@@ -20,7 +20,7 @@ const handleRendererChange = (e) => {
         <option value="{renderer}">{renderer}</option>
       {/each}
       </select>
-     renderer with consistent API
+     renderer with the consistent API
     </span>
   </div>
   <span class="icon">

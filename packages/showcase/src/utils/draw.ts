@@ -1,4 +1,44 @@
-import { Scene, Group, Layer, StaticLayer } from '@rizurin/core'
+import { Scene, Group, Layer, StaticLayer, Shape } from '@rizurin/core'
+
+class RainbowText extends Shape {
+  public text = ''
+  public fontSize = 25
+  public colors = ["red", 'rgb(217,31,38)', 'rgb(226,91,14)', 'rgb(245,221,8)', 'rgb(5,148,68)', 'rgb(2,135,206)', 'rgb(4,77,145)', 'rgb(42,21,113)']
+  constructor(config) {
+    super(config);
+    this.text = config.text || 'Hello world';
+  }
+  $drawMain(ctx: CanvasRenderingContext2D) {
+    ctx.save()
+    ctx.font = `${this.fontSize}px Sans`;
+    ctx.textAlign = "center";
+    ctx.transform(...this.transform.matrix());
+    for(let i=this.colors.length; i>0; i--) {
+      ctx.fillStyle = this.colors[i];
+      ctx.fillText(this.text, (i + 1) * 3, (i + 1) * 3);
+    }
+    ctx.restore()
+  }
+  $drawHit(ctx: CanvasRenderingContext2D) {}
+}
+
+export const DrawCustomShape = async (container: HTMLElement, renderer: any, size: [number, number]) => {
+  const [containerWidth, containerHeight] = size
+  
+  const scene = new Scene({ 
+    container,
+    width: containerWidth,
+    height: containerHeight,
+  })
+  let layer = new StaticLayer()
+  layer.bind(await new renderer({canvas: layer.canvas}))
+  const rainbow = new RainbowText({text:"RainbowShape", x: 100, y: 100})
+  layer.add(rainbow)
+  const dizzy = new RainbowText({text:"Wow! I feel dizzy!", x: 300, y:200})
+  dizzy.rotate(30*Math.PI / 180)
+  layer.add(dizzy)
+  scene.add(layer)
+}
 
 export const DrawBasicPrimitive = async (container: HTMLElement, shapes: any, renderer: any, size: [number, number], isStatic?) => {
   const { Rect, Circle, Line, Polygon } = shapes
@@ -75,7 +115,7 @@ export const InteractionExample = async (container: HTMLElement, shapes: any, re
 export const AnimationExample = async (container: HTMLElement, shapes: any, renderer: any, size: [number, number]) => {
   const { scene, rect, rect2, polygon, circle }= await DrawBasicPrimitive(container, shapes, renderer, size, false)
   let step = 3
-  let ratio, dir
+  let ratio = 1.01, dir = 1
   const animate = () => {
     if(circle.scaleX > 1.5)  ratio = 0.99
     if(circle.scaleX < 0.5)  ratio = 1.01

@@ -8,7 +8,7 @@
   </aside>
   <main class="demo-main-content">
     {#if isWebGPUEnabled && currentRendererIndex===3}
-      <div class="hint">* WebGPU drawing task needs optimized in the future</div>
+      <div class="hint">* WebGPU drawing tasks need to be optimized in the future</div>
     {/if}
     <section>
       {#if !isWebGPUEnabled && currentRendererIndex===3}
@@ -33,12 +33,12 @@
   import { typescript } from 'svelte-highlight/languages';
   import 'svelte-highlight/styles/github.css';
   import { DrawBasicPrimitive, AnimationExample, 
-  InteractionExample, GameOfLife } from '../utils/draw'
+  InteractionExample, GameOfLife, DrawCustomShape } from '../utils/draw'
   import Snippets from '../utils/code'
   import { onMount, onDestroy } from "svelte";
   const shapeOptions = ['CANVAS_SHAPES', 'SVG_SHAPES', 'WEBGL_SHAPES', 'WEBGPU_SHAPES']
   const rendererOptions = ['Canvas', 'SVG', 'WebGL', 'WebGPU']
-  const sectionOptions = ['Basic Drawing', 'Interaction', 'Animation', 'Game Of Life']
+  const sectionOptions = ['Basic Shape', 'Custom Shape', 'Interaction', 'Animation', 'Game Of Life']
   let currentDemoIndex = 0
   let currentRendererIndex = 0
   let containerWidth
@@ -86,13 +86,19 @@
         break;
       case 1:
         functionCode = Snippets[index]()
-        InteractionExample(container, shapes, renderer, [containerWidth, containerHeight])
+        if(currentRendererIndex === 0) {
+          DrawCustomShape(container, renderer, [containerWidth, containerHeight])
+        }
         break;
       case 2:
         functionCode = Snippets[index]()
-        AnimationExample(container, shapes, renderer, [containerWidth, containerHeight])
+        InteractionExample(container, shapes, renderer, [containerWidth, containerHeight])
         break;
       case 3:
+        functionCode = Snippets[index]()
+        AnimationExample(container, shapes, renderer, [containerWidth, containerHeight])
+        break;
+      case 4:
         functionCode = Snippets[index](shapeOptions[currentRendererIndex], rendererOptions[currentRendererIndex])
         GameOfLife(container, shapes, renderer)
         break;

@@ -1,4 +1,4 @@
-import { Scene, Group, Layer, StaticLayer } from '@rizurin/core'
+import { Scene, Group, Layer, StaticLayer, Shape } from '@rizurin/core'
 import { CanvasRenderer, SVGRenderer, WebGLRenderer, WebGPURenderer } from '@rizurin/renderer'
 import { CANVAS_SHAPES, WEBGL_SHAPES, WEBGPU_SHAPES, SVG_SHAPES } from '@rizurin/shape'
 
@@ -153,6 +153,54 @@ const GameOfLife = async renderType => {
   }, 1000)
 }
 
+class RainbowText extends Shape {
+  public text = ''
+  public fontSize = 25
+  public left = 0
+  public top = 0
+  public colors = ["red", 'rgb(217,31,38)', 'rgb(226,91,14)', 'rgb(245,221,8)', 'rgb(5,148,68)', 'rgb(2,135,206)', 'rgb(4,77,145)', 'rgb(42,21,113)']
+  constructor(config) {
+    super(config);
+    this.text = config.text || 'Hello world';
+    this.width = this.text.length * this.fontSize * 0.6;
+    this.height = this.fontSize * 1.5;
+  }
+  $drawMain(ctx: CanvasRenderingContext2D) {
+    ctx.save()
+    ctx.font = `${this.fontSize}px Sans`;
+    ctx.textAlign = "center";
+    ctx.transform(...this.transform.matrix());
+    for(let i=this.colors.length; i>0; i--) {
+      ctx.fillStyle = this.colors[i];
+      ctx.fillText(this.text, (i + 1) * 3, (i + 1) * 3);
+    }
+    ctx.restore()
+  }
+  $drawHit(ctx: CanvasRenderingContext2D) {
+    ctx.save()
+    ctx.font = `${this.fontSize}px Sans`;
+    ctx.textAlign = "center";
+    ctx.transform(...this.transform.matrix());
+    for(let i=this.colors.length; i>0; i--) {
+      ctx.fillStyle = this.colors[i];
+      ctx.fillText(this.text, (i + 1) * 3, (i + 1) * 3);
+    }
+    ctx.restore()
+  }
+}
+const DrawCustomShape = async () => {
+  const container = document.querySelector(`.canvas`) as HTMLCanvasElement
+  const scene = new Scene({ 
+    container,
+    width: containerWidth,
+    height: containerHeight,
+  })
+  let layer = new Layer()
+  layer.bind(await new CanvasRenderer({canvas: layer.canvas}))
+  const rainbow = new RainbowText({text:'hello', x: 100, y: 100})
+  layer.add(rainbow)
+  scene.add(layer)
+}
 const DrawBasicPrimitive = async renderType => {
   const { Rect, Circle, Line, Polygon, Text } = Shapes(renderType)
   const container = document.querySelector(`.${renderType}`) as HTMLCanvasElement
@@ -251,7 +299,8 @@ const AnimationExample = async renderType => {
   }
   animate()
 }
-['canvas', 'webgl', 'webgpu', 'svg'].map(r => AnimationExample(r))
+DrawCustomShape()
+// ['canvas', 'webgl', 'webgpu', 'svg'].map(r => AnimationExample(r))
 // ['canvas', 'webgl', 'webgpu', 'svg'].map(r => InteractionExample(r))
 // ['canvas', 'webgl', 'webgpu', 'svg'].map(r => DrawBasicPrimitive(r))
 // ['canvas', 'webgl', 'webgpu', 'svg'].map(r => SierpinskiTriangle(r))
