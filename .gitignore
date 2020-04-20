@@ -9,5 +9,4 @@ lib
 .idea
 .vscode
 .DS_Store
-public
 build

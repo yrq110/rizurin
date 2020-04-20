@@ -13,9 +13,8 @@
     <section>
       {#if !isWebGPUEnabled && currentRendererIndex===3}
         <div class="warning">Seems that your browser does not support WebGPU feature, please use latest version of Chrome Canary</div> 
-      {:else}
-        <div class="container"></div>
       {/if}
+      <div class="container"></div>
     </section>
     <section>
       <Highlight language={typescript} {code} />
