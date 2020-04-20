@@ -12,14 +12,12 @@
   ],
   "scripts": {
     "clean": "rimraf packages/**/dist && rimraf packages/**/tsconfig.tsbuildinfo",
-    "build": "lerna run build",
-    "compile": "yarn clean && lerna run compile",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "bootstrap": "lerna bootstrap",
-    "b": "tsc -b packages/util packages/core packages/renderer packages/shape",
+    "build": "tsc -b packages/util packages/core packages/renderer packages/shape",
     "play": "lerna exec --scope @rizurin/playground yarn dev",
-    "case": "lerna exec --scope @rizurin/showcase yarn dev",
+    "demo": "lerna exec --scope @rizurin/showcase yarn dev",
     "pub:lib": "lerna publish",
     "pub:doc": "yarn workspace @rizurin/showcase build && gh-pages -d packages/showcase/public"
   },
