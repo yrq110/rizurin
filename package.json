@@ -21,7 +21,7 @@
     "play": "lerna exec --scope @rizurin/playground yarn dev",
     "case": "lerna exec --scope @rizurin/showcase yarn dev",
     "pub:lib": "lerna publish",
-    "pub:doc": "yarn workspace @rizurin/showcase build && gh-pages -d packages/showcase/public",
+    "pub:doc": "yarn workspace @rizurin/showcase build && gh-pages -d packages/showcase/public"
   },
   "author": "yrq110 <yrq1025@gmail.com>",
   "license": "MIT",
